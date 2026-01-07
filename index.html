@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>iSmartBox | Next-Gen Modular Data Centers & ICT Infrastructure – Oman</title>
+  <title>iSmartBox | Premium Modular Data Centers & Enterprise ICT Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="iSmartBox delivers factory-integrated container data centers, edge computing, and ICT infrastructure solutions engineered for the Gulf region." />
+  <meta name="description" content="Premium modular container data centers, edge computing, and enterprise ICT infrastructure solutions engineered in Muscat, Oman for Gulf operations." />
   <style>
     :root {
       --primary: #00d1b2;
+      --primary-light: #00e5cc;
       --primary-dark: #0099a1;
       --secondary: #1e3a8a;
+      --accent: #f59e0b;
       --bg-dark: #0f172a;
       --bg-darker: #020617;
       --card-bg: #1e293b;
@@ -17,7 +19,7 @@
       --text-muted: #94a3b8;
       --border: #334155;
       --success: #10b981;
-      --warning: #f59e0b;
+      --error: #f87171;
     }
 
     * {
@@ -31,7 +33,7 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: linear-gradient(135deg, var(--bg-darker) 0%, #1a1f2e 50%, var(--bg-dark) 100%);
       color: var(--text);
       line-height: 1.6;
@@ -45,7 +47,7 @@
     }
 
     a:hover {
-      color: #00e5cc;
+      color: var(--primary-light);
     }
 
     .container {
@@ -54,16 +56,17 @@
       padding: 0 20px;
     }
 
-    /* NAVIGATION */
+    /* ===== NAVIGATION ===== */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
       backdrop-filter: blur(10px);
-      background: rgba(15, 23, 42, 0.85);
+      background: rgba(15, 23, 42, 0.9);
       border-bottom: 1px solid rgba(0, 209, 178, 0.2);
       z-index: 1000;
       padding: 16px 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
     nav .container {
@@ -78,6 +81,9 @@
       color: var(--primary);
       letter-spacing: 2px;
       text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     nav ul {
@@ -92,6 +98,7 @@
       color: var(--text-muted);
       transition: all 0.3s;
       position: relative;
+      font-weight: 500;
     }
 
     nav a:hover,
@@ -106,7 +113,7 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--primary);
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
       transition: width 0.3s;
     }
 
@@ -115,12 +122,19 @@
     }
 
     .nav-cta {
-      background: linear-gradient(135deg, var(--primary), #00e5cc);
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: #000;
-      padding: 8px 16px;
+      padding: 10px 20px;
       border-radius: 6px;
       font-weight: 600;
       font-size: 12px;
+      box-shadow: 0 4px 15px rgba(0, 209, 178, 0.3);
+      transition: all 0.3s;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 209, 178, 0.4);
     }
 
     @media (max-width: 768px) {
@@ -129,11 +143,11 @@
       }
     }
 
-    /* HERO SECTION */
+    /* ===== HERO SECTION ===== */
     .hero {
       margin-top: 60px;
-      padding: 80px 0;
-      background: linear-gradient(180deg, rgba(0, 209, 178, 0.05) 0%, transparent 50%);
+      padding: 100px 0 80px;
+      background: linear-gradient(180deg, rgba(0, 209, 178, 0.08) 0%, transparent 50%);
       position: relative;
       overflow: hidden;
     }
@@ -141,11 +155,22 @@
     .hero::before {
       content: "";
       position: absolute;
-      top: -40%;
-      right: -20%;
+      top: -30%;
+      right: -10%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(0, 209, 178, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -20%;
+      left: -10%;
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(0, 209, 178, 0.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(30, 58, 138, 0.1) 0%, transparent 70%);
       border-radius: 50%;
     }
 
@@ -159,14 +184,16 @@
     }
 
     .hero-text h1 {
-      font-size: clamp(36px, 5vw, 56px);
+      font-size: clamp(40px, 6vw, 64px);
       line-height: 1.1;
       margin-bottom: 24px;
       color: var(--text);
+      font-weight: 800;
+      letter-spacing: -1px;
     }
 
     .hero-text h1 span {
-      background: linear-gradient(135deg, var(--primary), #00e5cc);
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -176,7 +203,33 @@
       font-size: 18px;
       color: var(--text-muted);
       margin-bottom: 32px;
-      line-height: 1.7;
+      line-height: 1.8;
+      max-width: 550px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .badge-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 209, 178, 0.1);
+      border: 1px solid rgba(0, 209, 178, 0.3);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .badge-hero::before {
+      content: "✓";
+      font-weight: bold;
     }
 
     .hero-buttons {
@@ -200,13 +253,13 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--primary), #00e5cc);
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: #000;
       box-shadow: 0 8px 32px rgba(0, 209, 178, 0.3);
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
       box-shadow: 0 12px 48px rgba(0, 209, 178, 0.4);
     }
 
@@ -218,23 +271,24 @@
 
     .btn-secondary:hover {
       background: rgba(0, 209, 178, 0.1);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
 
     .hero-image {
       position: relative;
-      height: 500px;
+      height: 520px;
       border-radius: 16px;
       overflow: hidden;
       background: rgba(30, 41, 59, 0.8);
-      border: 1px solid rgba(0, 209, 178, 0.2);
+      border: 2px solid rgba(0, 209, 178, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 209, 178, 0.15);
     }
 
     .hero-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(1.1) contrast(1.1);
+      filter: brightness(1.05) contrast(1.1);
     }
 
     @media (max-width: 968px) {
@@ -242,41 +296,77 @@
         grid-template-columns: 1fr;
       }
       .hero-image {
-        height: 300px;
+        height: 350px;
       }
     }
 
-    /* FEATURES SECTION */
-    .features {
-      padding: 100px 0;
-      background: rgba(30, 41, 59, 0.3);
+    /* ===== STATS SECTION ===== */
+    .stats {
+      padding: 60px 0;
+      background: rgba(30, 41, 59, 0.4);
       border: 1px solid rgba(0, 209, 178, 0.1);
       border-left: none;
       border-right: none;
+      margin-bottom: 60px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 32px;
+      text-align: center;
+    }
+
+    .stat-box {
+      padding: 20px;
+    }
+
+    .stat-number {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+
+    /* ===== FEATURES SECTION ===== */
+    .features {
+      padding: 100px 0;
     }
 
     .section-title {
-      font-size: 40px;
+      font-size: 44px;
+      font-weight: 800;
       text-align: center;
       margin-bottom: 60px;
       color: var(--text);
+      letter-spacing: -1px;
     }
 
     .section-title span {
-      color: var(--primary);
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 32px;
     }
 
     .feature-card {
       background: var(--card-bg);
       border: 1px solid rgba(0, 209, 178, 0.2);
-      border-radius: 12px;
-      padding: 32px;
+      border-radius: 14px;
+      padding: 40px;
       transition: all 0.3s;
       position: relative;
       overflow: hidden;
@@ -306,143 +396,200 @@
     }
 
     .feature-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--primary), #00e5cc);
-      border-radius: 10px;
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 32px;
-      margin-bottom: 16px;
+      font-size: 36px;
+      margin-bottom: 20px;
       position: relative;
       z-index: 1;
+      box-shadow: 0 8px 20px rgba(0, 209, 178, 0.2);
     }
 
     .feature-card h3 {
-      font-size: 20px;
-      margin-bottom: 12px;
+      font-size: 22px;
+      margin-bottom: 14px;
       color: var(--text);
       position: relative;
       z-index: 1;
+      font-weight: 700;
     }
 
     .feature-card p {
       color: var(--text-muted);
       font-size: 14px;
-      line-height: 1.6;
+      line-height: 1.7;
       position: relative;
       z-index: 1;
     }
 
-    /* SOLUTIONS SECTION */
-    .solutions {
+    /* ===== PRODUCT LINES ===== */
+    .product-lines {
       padding: 100px 0;
+      background: rgba(30, 41, 59, 0.2);
+      border: 1px solid rgba(0, 209, 178, 0.1);
+      border-left: none;
+      border-right: none;
     }
 
-    .solution-item {
+    .product-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      margin-bottom: 80px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
     }
 
-    .solution-item:nth-child(even) {
-      grid-template-columns: 1fr 1fr;
-      direction: rtl;
+    .product-card {
+      background: var(--card-bg);
+      border: 2px solid rgba(0, 209, 178, 0.2);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s;
+      position: relative;
+      display: flex;
+      flex-direction: column;
     }
 
-    .solution-item:nth-child(even) > * {
-      direction: ltr;
+    .product-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 24px 60px rgba(0, 209, 178, 0.2);
+      transform: translateY(-12px);
     }
 
-    .solution-content h2 {
-      font-size: 36px;
-      margin-bottom: 16px;
-      color: var(--text);
+    .product-header {
+      background: linear-gradient(135deg, rgba(0, 209, 178, 0.1), rgba(0, 209, 178, 0.05));
+      padding: 40px 32px;
+      border-bottom: 2px solid rgba(0, 209, 178, 0.2);
+      text-align: center;
     }
 
-    .solution-content .badge {
+    .product-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .product-badge {
       display: inline-block;
-      background: rgba(0, 209, 178, 0.1);
+      background: rgba(0, 209, 178, 0.15);
       border: 1px solid var(--primary);
       color: var(--primary);
       padding: 6px 12px;
       border-radius: 999px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
     }
 
-    .solution-content p {
-      color: var(--text-muted);
-      font-size: 16px;
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .solution-list {
-      list-style: none;
-      margin-bottom: 24px;
-    }
-
-    .solution-list li {
-      color: var(--text-muted);
-      padding: 8px 0;
+    .product-content {
+      padding: 32px;
+      flex-grow: 1;
       display: flex;
+      flex-direction: column;
+    }
+
+    .product-card h3 {
+      font-size: 24px;
+      color: var(--text);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .product-card p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .product-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+      font-size: 13px;
+    }
+
+    .spec-item {
+      padding: 12px;
+      background: rgba(0, 209, 178, 0.08);
+      border-radius: 8px;
+      border-left: 3px solid var(--primary);
+    }
+
+    .spec-label {
+      color: var(--text-muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .spec-value {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .product-cta {
+      display: inline-flex;
       align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .product-cta:hover {
       gap: 12px;
-      font-size: 15px;
     }
 
-    .solution-list li::before {
-      content: "✓";
-      color: var(--success);
-      font-weight: bold;
-      font-size: 18px;
+    /* ===== COMPARISON TABLE ===== */
+    .comparison-section {
+      padding: 40px;
+      background: rgba(30, 41, 59, 0.5);
+      border-radius: 16px;
+      border: 1px solid rgba(0, 209, 178, 0.1);
+      overflow-x: auto;
+      margin-top: 60px;
     }
 
-    .solution-image {
-      height: 400px;
-      background: rgba(30, 41, 59, 0.8);
-      border-radius: 12px;
-      border: 1px solid rgba(0, 209, 178, 0.2);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .solution-image img {
+    .comparison-table {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(1.05);
+      border-collapse: collapse;
+      font-size: 13px;
     }
 
-    @media (max-width: 968px) {
-      .solution-item,
-      .solution-item:nth-child(even) {
-        grid-template-columns: 1fr;
-        direction: ltr;
-        gap: 32px;
-      }
-      .solution-item:nth-child(even) > * {
-        direction: ltr;
-      }
-      .solution-image {
-        height: 280px;
-      }
+    .comparison-table th {
+      background: rgba(0, 209, 178, 0.12);
+      padding: 16px;
+      text-align: left;
+      border-bottom: 2px solid rgba(0, 209, 178, 0.3);
+      color: var(--primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    /* SPECS SECTION */
+    .comparison-table td {
+      padding: 16px;
+      border-bottom: 1px solid rgba(0, 209, 178, 0.1);
+      color: var(--text-muted);
+    }
+
+    .comparison-table tr:hover {
+      background: rgba(0, 209, 178, 0.08);
+    }
+
+    /* ===== SPECS SECTION ===== */
     .specs {
       padding: 80px 0;
-      background: rgba(30, 41, 59, 0.3);
-      border: 1px solid rgba(0, 209, 178, 0.1);
-      border-left: none;
-      border-right: none;
     }
 
     .specs-grid {
@@ -452,58 +599,67 @@
       text-align: center;
     }
 
-    .spec-item {
-      padding: 24px;
+    .spec-item-large {
+      padding: 32px;
       background: var(--card-bg);
       border: 1px solid rgba(0, 209, 178, 0.15);
-      border-radius: 10px;
+      border-radius: 12px;
+      transition: all 0.3s;
     }
 
-    .spec-value {
-      font-size: 32px;
-      font-weight: 700;
+    .spec-item-large:hover {
+      border-color: var(--primary);
+      box-shadow: 0 12px 36px rgba(0, 209, 178, 0.1);
+    }
+
+    .spec-value-large {
+      font-size: 40px;
+      font-weight: 800;
       color: var(--primary);
       margin-bottom: 8px;
     }
 
-    .spec-label {
+    .spec-label-large {
       color: var(--text-muted);
       font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
-    /* CONTACT SECTION */
+    /* ===== CONTACT SECTION ===== */
     .contact {
       padding: 100px 0;
       text-align: center;
     }
 
     .contact h2 {
-      font-size: 40px;
+      font-size: 44px;
+      font-weight: 800;
       margin-bottom: 24px;
       color: var(--text);
+      letter-spacing: -1px;
     }
 
     .contact p {
       font-size: 18px;
       color: var(--text-muted);
-      margin-bottom: 40px;
+      margin-bottom: 48px;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+      line-height: 1.8;
     }
 
     .contact-methods {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 24px;
       margin-bottom: 48px;
     }
 
     .contact-method {
       background: var(--card-bg);
-      padding: 32px;
+      padding: 40px;
       border-radius: 12px;
       border: 1px solid rgba(0, 209, 178, 0.15);
       transition: all 0.3s;
@@ -512,30 +668,34 @@
     .contact-method:hover {
       border-color: var(--primary);
       box-shadow: 0 12px 36px rgba(0, 209, 178, 0.1);
+      transform: translateY(-4px);
     }
 
     .contact-method-icon {
-      font-size: 32px;
+      font-size: 40px;
       margin-bottom: 16px;
     }
 
     .contact-method h3 {
-      font-size: 16px;
+      font-size: 18px;
       margin-bottom: 8px;
       color: var(--text);
+      font-weight: 700;
     }
 
-    .contact-method a {
+    .contact-method a,
+    .contact-method p {
       font-weight: 600;
       font-size: 14px;
+      color: var(--primary);
     }
 
-    /* FOOTER */
+    /* ===== FOOTER ===== */
     footer {
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.5);
       border-top: 1px solid rgba(0, 209, 178, 0.1);
       padding: 40px 0;
-      margin-top: 60px;
+      margin-top: 80px;
       text-align: center;
       color: var(--text-muted);
       font-size: 13px;
@@ -545,18 +705,19 @@
       margin: 0;
     }
 
-    /* UTILITIES */
+    /* ===== UTILITIES ===== */
     .location-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(16, 185, 129, 0.1);
+      background: rgba(16, 185, 129, 0.15);
       border: 1px solid var(--success);
       color: var(--success);
-      padding: 8px 12px;
+      padding: 8px 14px;
       border-radius: 6px;
       font-size: 12px;
       font-weight: 600;
+      margin-bottom: 16px;
     }
 
     .location-badge::before {
@@ -573,22 +734,14 @@
       }
     }
 
-    /* RESPONSIVE */
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .hero {
-        padding: 40px 0;
+        padding: 40px 0 60px;
       }
       .section-title {
-        font-size: 28px;
+        font-size: 32px;
         margin-bottom: 40px;
-      }
-      .features,
-      .solutions,
-      .contact {
-        padding: 60px 0;
-      }
-      .solution-item {
-        margin-bottom: 50px;
       }
       .hero-buttons {
         flex-direction: column;
@@ -597,6 +750,12 @@
         width: 100%;
         justify-content: center;
       }
+      .product-specs {
+        grid-template-columns: 1fr;
+      }
+      nav ul {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -604,33 +763,62 @@
   <!-- NAVIGATION -->
   <nav>
     <div class="container">
-      <div class="logo-nav">iSmartBox</div>
+      <div class="logo-nav">◆ iSmartBox</div>
       <ul>
-        <li><a href="#solutions" class="nav-link">Solutions</a></li>
-        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#products" class="nav-link">Products</a></li>
+        <li><a href="#features" class="nav-link">Solutions</a></li>
+        <li><a href="#specs" class="nav-link">Specs</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
-        <li><a href="mailto:mostafa@rphotanol.com" class="nav-cta">Get Started</a></li>
+        <li><a href="mailto:mostafa@rphotanol.com" class="nav-cta">Request Demo</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="container">
       <div class="hero-content">
         <div class="hero-text">
-          <p style="color: var(--primary); font-weight: 600; margin-bottom: 8px;">
-            <span class="location-badge">● Muscat, Oman</span>
-          </p>
-          <h1>Next-Gen <span>Modular Data Centers</span> for the Gulf</h1>
-          <p>Factory-integrated container data centers, edge computing nodes, and enterprise ICT infrastructure. Engineered in Muscat for harsh climates, enterprise reliability, and 24/7 uptime.</p>
+          <span class="location-badge">● Muscat, Oman — Engineered for the Gulf</span>
+          <h1>Next-Generation <span>Modular Data Centers</span> Built for Enterprise Scale</h1>
+          <p>Factory-integrated container data centers with enterprise-grade reliability, advanced cooling, and 24/7 intelligent monitoring. Deploy infrastructure in weeks, not months.</p>
+          <div class="hero-badges">
+            <span class="badge-hero">99.95% Uptime SLA</span>
+            <span class="badge-hero">12–16 Week Delivery</span>
+            <span class="badge-hero">Gulf Climate Optimized</span>
+          </div>
           <div class="hero-buttons">
-            <a href="mailto:mostafa@rphotanol.com?subject=iSmartBox%20Inquiry" class="btn btn-primary">Schedule Consultation →</a>
+            <a href="mailto:mostafa@rphotanol.com?subject=iSmartBox%20Demo%20Request" class="btn btn-primary">Request Live Demo →</a>
             <a href="tel:+96898060818" class="btn btn-secondary">Call: +968 9806 0818</a>
           </div>
         </div>
         <div class="hero-image">
-          <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/e507240d-26b0-422d-9688-774ca4625c4a.png" alt="Modern modular data center" />
+          <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/e507240d-26b0-422d-9688-774ca4625c4a.png" alt="iSmartBox modular data center" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-number">83+</div>
+          <div class="stat-label">Units Deployed</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">565</div>
+          <div class="stat-label">Total Racks</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">3.9 MW</div>
+          <div class="stat-label">Total Power</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">1.35</div>
+          <div class="stat-label">Avg. PUE</div>
         </div>
       </div>
     </div>
@@ -639,131 +827,231 @@
   <!-- FEATURES -->
   <section class="features" id="features">
     <div class="container">
-      <h2 class="section-title">Why Choose <span>iSmartBox?</span></h2>
+      <h2 class="section-title">Why <span>iSmartBox?</span></h2>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">📦</div>
           <h3>Modular Design</h3>
-          <p>ISO 20/40ft containers with pre-integrated racks, cabling, and infrastructure. Scalable from single unit to multi-container deployments.</p>
+          <p>ISO 20/40/45ft containers. Pre-integrated racks (8–300 units), cabling, networking. Scale seamlessly from edge to core.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">❄️</div>
-          <h3>Climate Optimized</h3>
-          <p>Engineered for Gulf heat and humidity. Advanced in-row/precision cooling, high-efficiency power distribution, redundant systems.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔐</div>
-          <h3>Security First</h3>
-          <p>Physical security by design. Integrated fire detection, suppression, access control, and environmental monitoring for peace of mind.</p>
+          <h3>Gulf Climate Ready</h3>
+          <p>Advanced in-row/precision cooling. Rated -15°C to 60°C. PUE ≤ 1.35. Designed for Oman's heat and humidity.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">⚡</div>
-          <h3>High Density</h3>
-          <p>42U+ racks, optimized power delivery up to 15kW per rack. Enterprise-grade UPS, backup generators, and redundant cooling loops.</p>
+          <h3>High-Density Power</h3>
+          <p>15–17 kW per rack. Redundant UPS (2N), backup generators, intelligent PDU distribution and monitoring.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Security First</h3>
+          <p>Physical security by design. Fire detection/suppression, access control, environmental sensors, 24/7 DCIM.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🌐</div>
-          <h3>Always Connected</h3>
-          <p>24/7 remote monitoring, DCIM integration, live telemetry dashboards, and proactive alerting—monitoring from Muscat or anywhere.</p>
+          <h3>Smart Monitoring</h3>
+          <p>100+ environmental sensors. Real-time telemetry, predictive alerts, auto-response. TCP/IP, SNMP, Modbus, BACnet.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">⏱️</div>
           <h3>Fast Deployment</h3>
-          <p>Factory-assembled, tested, and documented. 12–16 week delivery for standard configs. Land, connect, go live.</p>
+          <p>Factory-tested and documented. 12–16 weeks standard. Land, connect, deploy. Zero site prep delays.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SOLUTIONS -->
-  <section class="solutions" id="solutions">
+  <!-- PRODUCTS -->
+  <section class="product-lines" id="products">
     <div class="container">
-      <h2 class="section-title">Our <span>Solutions</span></h2>
-
-      <!-- Container Data Centers -->
-      <div class="solution-item">
-        <div class="solution-content">
-          <span class="badge">Data Center</span>
-          <h2>Container Data Centers</h2>
-          <p>Purpose-built ISO 20/40ft container enclosures with fully integrated ICT and power infrastructure. Perfect for enterprises, service providers, and government agencies needing predictable, relocatable infrastructure.</p>
-          <ul class="solution-list">
-            <li>Pre-cabled and tested in factory</li>
-            <li>Scalable rack density (42U+)</li>
-            <li>Integrated UPS, PDU, cooling</li>
-            <li>Remote power-on, monitoring</li>
-            <li>Land-and-go deployment</li>
-            <li>Designed for Omani/GCC climate</li>
-          </ul>
-          <a href="mailto:mostafa@rphotanol.com" class="btn btn-primary">Request Specs →</a>
+      <h2 class="section-title">Product <span>Lines</span></h2>
+      
+      <div class="product-grid">
+        <!-- POD Series -->
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-icon">🏢</div>
+            <span class="product-badge">Core Level</span>
+            <h3>POD Series</h3>
+          </div>
+          <div class="product-content">
+            <p>Performance-optimized core data centers. 20–600 kW capacity, 20–30 racks. Multi-container design with dedicated NOC, cooling, power, and IT facilities.</p>
+            <div class="product-specs">
+              <div class="spec-item">
+                <div class="spec-label">Power</div>
+                <div class="spec-value">200–600 kW</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">Racks</div>
+                <div class="spec-value">20–30</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">Power/Rack</div>
+                <div class="spec-value">17 kW</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">Cooling</div>
+                <div class="spec-value">240–576 kW</div>
+              </div>
+            </div>
+            <a href="mailto:mostafa@rphotanol.com?subject=POD%20Series%20Inquiry" class="product-cta">Request Specs →</a>
+          </div>
         </div>
-        <div class="solution-image">
-          <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/e507240d-26b0-422d-9688-774ca4625c4a.png" alt="Container Data Center" />
+
+        <!-- MOD Series -->
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-icon">🎯</div>
+            <span class="product-badge">Edge & Mobile</span>
+            <h3>MOD Series</h3>
+          </div>
+          <div class="product-content">
+            <p>Mobile-optimized edge data centers. 35–96 kW capacity, 5–12 racks. Perfect for Tier II/III branch offices, disaster recovery, and distributed workloads.</p>
+            <div class="product-specs">
+              <div class="spec-item">
+                <div class="spec-label">Power</div>
+                <div class="spec-value">35–96 kW</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">Racks</div>
+                <div class="spec-value">5–12</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">UPS</div>
+                <div class="spec-value">N+1</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">Tier</div>
+                <div class="spec-value">II–III</div>
+              </div>
+            </div>
+            <a href="mailto:mostafa@rphotanol.com?subject=MOD%20Series%20Inquiry" class="product-cta">Explore MOD →</a>
+          </div>
+        </div>
+
+        <!-- TOD Series -->
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-icon">🎖️</div>
+            <span class="product-badge">Tactical</span>
+            <h3>TOD Series</h3>
+          </div>
+          <div class="product-content">
+            <p>Tactical operations and command centers. 18–30 kW capacity, 3–5 racks. Configurable as command room, crisis center, or mobile processing hub.</p>
+            <div class="product-specs">
+              <div class="spec-item">
+                <div class="spec-label">Power</div>
+                <div class="spec-value">18–30 kW</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">Racks</div>
+                <div class="spec-value">3–5</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">Size</div>
+                <div class="spec-value">45ft</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">Tier</div>
+                <div class="spec-value">II</div>
+              </div>
+            </div>
+            <a href="mailto:mostafa@rphotanol.com?subject=TOD%20Series%20Inquiry" class="product-cta">Start Project →</a>
+          </div>
         </div>
       </div>
 
-      <!-- Edge & Micro -->
-      <div class="solution-item">
-        <div class="solution-content">
-          <span class="badge">Edge Computing</span>
-          <h2>Edge & Micro Data Centers</h2>
-          <p>Compact, fully integrated edge nodes for remote sites, branch offices, industrial facilities, and low-latency applications. Bring compute and storage to the workload.</p>
-          <ul class="solution-list">
-            <li>Footprint: 6ft–12ft shipping container</li>
-            <li>15–20 rack units of compute</li>
-            <li>Integrated network, power, cooling</li>
-            <li>Self-contained redundancy</li>
-            <li>Minimal site prep required</li>
-            <li>Perfect for IoT, 5G, industrial apps</li>
-          </ul>
-          <a href="mailto:mostafa@rphotanol.com" class="btn btn-primary">Explore Edge →</a>
-        </div>
-        <div class="solution-image">
-          <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/e507240d-26b0-422d-9688-774ca4625c4a.png" alt="Edge Data Center" />
-        </div>
-      </div>
-
-      <!-- ICT Infrastructure -->
-      <div class="solution-item">
-        <div class="solution-content">
-          <span class="badge">ICT Integration</span>
-          <h2>Full ICT Infrastructure Design</h2>
-          <p>Beyond containers. End-to-end design and integration of switching, routing, storage, backup, virtualization, and security platforms tailored to your enterprise workloads.</p>
-          <ul class="solution-list">
-            <li>Network design & switching architecture</li>
-            <li>Storage and backup system integration</li>
-            <li>Virtualization & cloud-ready platforms</li>
-            <li>Security & access control systems</li>
-            <li>DCIM and remote monitoring setup</li>
-            <li>Turnkey implementation & training</li>
-          </ul>
-          <a href="mailto:mostafa@rphotanol.com" class="btn btn-primary">Start Project →</a>
-        </div>
-        <div class="solution-image">
-          <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/e507240d-26b0-422d-9688-774ca4625c4a.png" alt="ICT Infrastructure" />
-        </div>
+      <!-- COMPARISON TABLE -->
+      <div class="comparison-section">
+        <h3 style="text-align: center; margin-bottom: 24px; color: var(--text); font-weight: 700;">Quick Comparison</h3>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Spec</th>
+              <th>POD (Core)</th>
+              <th>MOD (Edge)</th>
+              <th>TOD (Tactical)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Power Capacity</strong></td>
+              <td>200–600 kW</td>
+              <td>35–96 kW</td>
+              <td>18–30 kW</td>
+            </tr>
+            <tr>
+              <td><strong>Rack Count</strong></td>
+              <td>20–30</td>
+              <td>5–12</td>
+              <td>3–5</td>
+            </tr>
+            <tr>
+              <td><strong>Power/Rack</strong></td>
+              <td>17 kW</td>
+              <td>8–16 kW</td>
+              <td>6 kW</td>
+            </tr>
+            <tr>
+              <td><strong>Redundancy</strong></td>
+              <td>2N/N+1</td>
+              <td>2x(N+1)</td>
+              <td>2N</td>
+            </tr>
+            <tr>
+              <td><strong>Cooling</strong></td>
+              <td>In-Row/Overhead</td>
+              <td>Overhead DX</td>
+              <td>Downflow DX</td>
+            </tr>
+            <tr>
+              <td><strong>Tier</strong></td>
+              <td>III–IV</td>
+              <td>II–III</td>
+              <td>II</td>
+            </tr>
+            <tr>
+              <td><strong>Deployment</strong></td>
+              <td>14–16w</td>
+              <td>12–14w</td>
+              <td>10–12w</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
 
-  <!-- SPECS / STATS -->
-  <section class="specs">
+  <!-- SPECS -->
+  <section class="specs" id="specs">
     <div class="container">
+      <h2 class="section-title">Performance <span>Metrics</span></h2>
       <div class="specs-grid">
-        <div class="spec-item">
-          <div class="spec-value">99.95%</div>
-          <div class="spec-label">Uptime SLA</div>
+        <div class="spec-item-large">
+          <div class="spec-value-large">99.95%</div>
+          <div class="spec-label-large">Uptime SLA</div>
         </div>
-        <div class="spec-item">
-          <div class="spec-value">12–16w</div>
-          <div class="spec-label">Typical Delivery</div>
+        <div class="spec-item-large">
+          <div class="spec-value-large">12–16w</div>
+          <div class="spec-label-large">Delivery Time</div>
         </div>
-        <div class="spec-item">
-          <div class="spec-value">24/7</div>
-          <div class="spec-label">Remote Monitoring</div>
+        <div class="spec-item-large">
+          <div class="spec-value-large">24/7</div>
+          <div class="spec-label-large">Smart Monitoring</div>
         </div>
-        <div class="spec-item">
-          <div class="spec-value">42U+</div>
-          <div class="spec-label">Rack Density</div>
+        <div class="spec-item-large">
+          <div class="spec-value-large">1.35</div>
+          <div class="spec-label-large">PUE Average</div>
+        </div>
+        <div class="spec-item-large">
+          <div class="spec-value-large">100+</div>
+          <div class="spec-label-large">Sensors</div>
+        </div>
+        <div class="spec-item-large">
+          <div class="spec-value-large">100%</div>
+          <div class="spec-label-large">Factory Tested</div>
         </div>
       </div>
     </div>
@@ -772,8 +1060,8 @@
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="container">
-      <h2>Ready to Scale Your <span style="color: var(--primary);">Infrastructure?</span></h2>
-      <p>Get in touch with our engineering team to discuss your deployment requirements, timeline, and infrastructure goals.</p>
+      <h2>Ready to Transform Your <span style="color: var(--primary);">Infrastructure?</span></h2>
+      <p>Get in touch with our engineering team to discuss your deployment requirements, timeline, and infrastructure roadmap.</p>
       
       <div class="contact-methods">
         <div class="contact-method">
@@ -793,38 +1081,35 @@
         </div>
       </div>
 
-      <a href="mailto:mostafa@rphotanol.com?subject=iSmartBox%20Project%20Inquiry" class="btn btn-primary" style="margin-bottom: 32px;">Get Free Consultation</a>
+      <a href="mailto:mostafa@rphotanol.com?subject=iSmartBox%20Project%20Inquiry" class="btn btn-primary">Schedule Consultation</a>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>&copy; 2026 iSmartBox. Modular Data Centers & ICT Infrastructure. Designed & Assembled in Muscat, Oman.</p>
+      <p>&copy; 2026 iSmartBox. Premium Modular Data Centers & Enterprise ICT Infrastructure. Engineered in Muscat, Oman.</p>
     </div>
   </footer>
 
   <script>
-    // Smooth scroll navigation
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
 
-    // Active nav link
+    // Active nav
     const navLinks = document.querySelectorAll('.nav-link');
     window.addEventListener('scroll', () => {
       navLinks.forEach(link => {
         const section = document.querySelector(link.getAttribute('href'));
         if (section) {
-          const sectionTop = section.offsetTop - 100;
-          const sectionBottom = sectionTop + section.offsetHeight;
-          if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
             link.classList.add('active');
           } else {
             link.classList.remove('active');
