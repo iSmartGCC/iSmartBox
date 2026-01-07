@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>iSmartBox | Modular Data Centers & ICT Solutions – Muscat, Oman</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="iSmartBox is a Muscat-based ICT company specializing in modular container data centers, edge computing and turnkey ICT infrastructure solutions." />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --accent: #00d1b2;
+      --accent-soft: rgba(0, 209, 178, 0.12);
+      --accent-strong: rgba(0, 209, 178, 0.2);
+      --text: #f5f5f5;
+      --muted: #9ca3af;
+      --border: #1f2933;
+      --error: #f87171;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 16px 56px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 30% 20%, #34d399, #22c1c3 40%, #2563eb);
+      box-shadow: 0 0 24px rgba(34, 197, 235, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo::after {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border-radius: 8px;
+      border: 2px solid rgba(15, 23, 42, 0.85);
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.6);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-weight: 650;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .brand-tagline {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .contact-top {
+      text-align: right;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .contact-top a {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 840px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .contact-top {
+        text-align: left;
+      }
+    }
+
+    .hero {
+      background: radial-gradient(circle at top left, #1f2937, #020617 55%);
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      padding: 24px 20px 20px;
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(148, 163, 184, 0.09);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -120px;
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.12), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(129, 140, 248, 0.1), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px 3px 4px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      margin-bottom: 14px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-pill-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #22c55e, #16a34a 60%, #0f766e);
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.75);
+      position: relative;
+    }
+
+    .hero-pill-dot::after {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border-radius: inherit;
+      border: 2px solid rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-title {
+      font-size: clamp(24px, 3vw, 30px);
+      line-height: 1.2;
+      margin-bottom: 10px;
+      font-weight: 650;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 18px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .badge {
+      font-size: 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 3px 9px;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .badge-strong {
+      background: var(--accent-soft);
+      border-color: var(--accent-strong);
+      color: var(--accent);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.18s ease-out;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #22c1c3, #4ade80);
+      color: #020617;
+      box-shadow:
+        0 10px 30px rgba(45, 212, 191, 0.35),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0 18px 40px rgba(34, 197, 235, 0.45),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+    }
+
+    .btn-outline {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.6);
+    }
+
+    .btn span.icon {
+      font-size: 15px;
+    }
+
+    .hero-note {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-note span {
+      color: #a5b4fc;
+    }
+
+    .side {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .card {
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 16px 16px 14px;
+      box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.75),
+        0 0 0 1px rgba(15, 23, 42, 0.8);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: var(--muted);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 480px) {
+      .features {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .feature-item {
+      padding: 8px;
+      border-radius: 10px;
+      background: radial-gradient(circle at top left, rgba(34, 197, 235, 0.07), rgba(15, 23, 42, 0.9));
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .feature-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+
+    .feature-text {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .feature-text strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 2px;
+      font-size: 11px;
+    }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+      font-size: 11px;
+    }
+
+    .stack span {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 1);
+      color: var(--muted);
+    }
+
+    .contact-card {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 640px) {
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .contact-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #6b7280;
+      margin-bottom: 2px;
+    }
+
+    .contact-value {
+      font-size: 12px;
+    }
+
+    .contact-value a {
+      color: var(--accent);
+      font-weight: 500;
+      word-break: break-all;
+    }
+
+    .location-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 11px;
+      margin-top: 4px;
+    }
+
+    .location-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 6px rgba(34, 197, 94, 0.9);
+    }
+
+    .footnote {
+      margin-top: 22px;
+      font-size: 10px;
+      color: #6b7280;
+      border-top: 1px dashed rgba(55, 65, 81, 0.9);
+      padding-top: 10px;
+    }
+
+    .footnote strong {
+      color: var(--muted);
+    }
+
+    .small-sep {
+      opacity: 0.4;
+      margin: 0 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="brand-text">
+          <div class="brand-name">iSmartBox</div>
+          <div class="brand-tagline">Modular Data Centers &amp; ICT Solutions</div>
+        </div>
+      </div>
+      <div class="contact-top">
+        <div>Muscat, Sultanate of Oman</div>
+        <div>
+          <a href="mailto:mostafa@rphotanol.com">mostafa@rphotanol.com</a>
+          <span class="small-sep">•</span>
+          <a href="tel:+96898060818">+968 9806 0818</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-inner">
+          <div class="hero-pill">
+            <div class="hero-pill-dot" aria-hidden="true"></div>
+            <span>Engineered for harsh environments &amp; always‑on workloads</span>
+          </div>
+          <h1 id="hero-heading" class="hero-title">
+            Smart, modular <span>container data centers</span> and ICT infrastructure for the Gulf.
+          </h1>
+          <p class="hero-subtitle">
+            iSmartBox delivers factory‑integrated container data centers, edge compute nodes and turnkey ICT
+            infrastructure, designed and assembled in Muscat to meet regional performance, reliability and energy‑efficiency needs.
+          </p>
+
+          <div class="hero-badges">
+            <span class="badge badge-strong">Container &amp; Edge Data Centers</span>
+            <span class="badge">ICT Infrastructure Integration</span>
+            <span class="badge">High‑density Power &amp; Cooling</span>
+            <span class="badge">24/7 Remote Monitoring Ready</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:mostafa@rphotanol.com?subject=iSmartBox%20Inquiry%20-%20Modular%20Data%20Center">
+              <span class="icon">✉️</span>
+              <span>Request a design workshop</span>
+            </a>
+            <a class="btn btn-outline" href="tel:+96898060818">
+              <span class="icon">📞</span>
+              <span>Speak with engineering</span>
+            </a>
+          </div>
+
+          <p class="hero-note">
+            Typical delivery: <span>12–16 weeks</span> from approved design for standard container configurations.
+          </p>
+        </div>
+      </section>
+
+      <aside class="side">
+        <section class="card" aria-label="Core solutions">
+          <div class="card-header">
+            <h2 class="card-title">Core Solutions</h2>
+            <span class="pill">ICT &amp; Data Center</span>
+          </div>
+          <div class="features">
+            <div class="feature-item">
+              <div class="feature-icon">DC</div>
+              <div class="feature-text">
+                <strong>Container Data Centers</strong>
+                Prefabricated ISO containers with integrated racks, structured cabling, precision cooling,
+                fire detection/suppression and physical security – ready to land on your prepared pad.
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">EDGE</div>
+              <div class="feature-text">
+                <strong>Edge &amp; Micro Data Centers</strong>
+                Compact, fully integrated edge nodes for industrial sites, remote branches and low‑latency
+                applications across Oman and the wider GCC.
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">ICT</div>
+              <div class="feature-text">
+                <strong>ICT Infrastructure</strong>
+                Design and integration of switching, routing, storage, backup, virtualization and security
+                platforms tailored to enterprise and government workloads.
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">24/7</div>
+              <div class="feature-text">
+                <strong>Power, Cooling &amp; Monitoring</strong>
+                High‑efficiency UPS and power distribution, in‑row/precision cooling, environmental sensors
+                and integration with your DCIM/NMS for complete visibility.
+              </div>
+            </div>
+          </div>
+          <div class="stack">
+            <span>Tiered designs</span>
+            <span>Scalable from a few racks to full rows</span>
+            <span>Designed for Omani climate</span>
+          </div>
+        </section>
+
+        <section class="card contact-card" aria-label="Company profile & contact">
+          <div class="card-header">
+            <h2 class="card-title">Company Profile</h2>
+            <span class="pill">Based in Muscat</span>
+          </div>
+          <p>
+            iSmartBox is an ICT engineering company headquartered in Muscat, Oman, focused on practical,
+            standards‑aligned infrastructure projects for enterprises, service providers and public‑sector customers.
+          </p>
+
+          <div class="contact-grid">
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">
+                <a href="mailto:mostafa@rphotanol.com">mostafa@rphotanol.com</a>
+              </div>
+            </div>
+            <div>
+              <div class="contact-label">Phone / WhatsApp</div>
+              <div class="contact-value">
+                <a href="tel:+96898060818">+968 9806 0818</a>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:8px;">
+            <div class="contact-label">Location</div>
+            <div class="location-pill">
+              <span class="location-dot" aria-hidden="true"></span>
+              <span>Muscat, Sultanate of Oman</span>
+            </div>
+          </div>
+
+          <p style="margin-top:10px;">
+            To discuss a specific deployment (container size, IT load, redundancy level, site conditions),
+            please share your high‑level requirements by email and we will respond with an initial layout
+            and power/cooling estimate.
+          </p>
+
+          <div class="footnote">
+            <strong>Note:</strong> This one‑page profile is intentionally minimal for use with static hosting
+            platforms (such as GitHub Pages) and simple domain redirects. A full multi‑page site can be
+            added later without changing the public URL.
+          </div>
+        </section>
+      </aside>
+    </main>
+  </div>
+</body>
+</html>
