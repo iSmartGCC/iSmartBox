@@ -1,1122 +1,602 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <title>iSmartBox | Premium Modular Data Centers & Enterprise ICT Solutions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Premium modular container data centers, edge computing, and enterprise ICT infrastructure solutions engineered in Muscat, Oman for Gulf operations." />
-  <style>
-    :root {
-      --primary: #00d1b2;
-      --primary-light: #00e5cc;
-      --primary-dark: #0099a1;
-      --secondary: #1e3a8a;
-      --accent: #f59e0b;
-      --bg-dark: #0f172a;
-      --bg-darker: #020617;
-      --card-bg: #1e293b;
-      --text: #f1f5f9;
-      --text-muted: #94a3b8;
-      --border: #334155;
-      --success: #10b981;
-      --error: #f87171;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: linear-gradient(135deg, var(--bg-darker) 0%, #1a1f2e 50%, var(--bg-dark) 100%);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: var(--primary);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    a:hover {
-      color: var(--primary-light);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* ===== NAVIGATION ===== */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      backdrop-filter: blur(10px);
-      background: rgba(15, 23, 42, 0.9);
-      border-bottom: 1px solid rgba(0, 209, 178, 0.2);
-      z-index: 1000;
-      padding: 16px 0;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    nav .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo-nav {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--primary);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 32px;
-      align-items: center;
-    }
-
-    nav a {
-      font-size: 13px;
-      color: var(--text-muted);
-      transition: all 0.3s;
-      position: relative;
-      font-weight: 500;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--primary);
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary), var(--primary-light));
-      transition: width 0.3s;
-    }
-
-    nav a.active::after {
-      width: 100%;
-    }
-
-    .nav-cta {
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: #000;
-      padding: 10px 20px;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 12px;
-      box-shadow: 0 4px 15px rgba(0, 209, 178, 0.3);
-      transition: all 0.3s;
-    }
-
-    .nav-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(0, 209, 178, 0.4);
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-      }
-    }
-
-    /* ===== HERO SECTION ===== */
-    .hero {
-      margin-top: 60px;
-      padding: 100px 0 80px;
-      background: linear-gradient(180deg, rgba(0, 209, 178, 0.08) 0%, transparent 50%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: -30%;
-      right: -10%;
-      width: 800px;
-      height: 800px;
-      background: radial-gradient(circle, rgba(0, 209, 178, 0.15) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      bottom: -20%;
-      left: -10%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(30, 58, 138, 0.1) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-
-    .hero-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-text h1 {
-      font-size: clamp(40px, 6vw, 64px);
-      line-height: 1.1;
-      margin-bottom: 24px;
-      color: var(--text);
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
-
-    .hero-text h1 span {
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-text p {
-      font-size: 18px;
-      color: var(--text-muted);
-      margin-bottom: 32px;
-      line-height: 1.8;
-      max-width: 550px;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 32px;
-    }
-
-    .badge-hero {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(0, 209, 178, 0.1);
-      border: 1px solid rgba(0, 209, 178, 0.3);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: var(--primary);
-      font-weight: 500;
-    }
-
-    .badge-hero::before {
-      content: "✓";
-      font-weight: bold;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 14px 32px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 14px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: #000;
-      box-shadow: 0 8px 32px rgba(0, 209, 178, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 48px rgba(0, 209, 178, 0.4);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border: 2px solid var(--primary);
-      color: var(--primary);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(0, 209, 178, 0.1);
-      transform: translateY(-3px);
-    }
-
-    .hero-image {
-      position: relative;
-      height: 520px;
-      border-radius: 16px;
-      overflow: hidden;
-      background: rgba(30, 41, 59, 0.8);
-      border: 2px solid rgba(0, 209, 178, 0.3);
-      box-shadow: 0 20px 60px rgba(0, 209, 178, 0.15);
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(1.05) contrast(1.1);
-    }
-
-    @media (max-width: 968px) {
-      .hero-content {
-        grid-template-columns: 1fr;
-      }
-      .hero-image {
-        height: 350px;
-      }
-    }
-
-    /* ===== STATS SECTION ===== */
-    .stats {
-      padding: 60px 0;
-      background: rgba(30, 41, 59, 0.4);
-      border: 1px solid rgba(0, 209, 178, 0.1);
-      border-left: none;
-      border-right: none;
-      margin-bottom: 60px;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 32px;
-      text-align: center;
-    }
-
-    .stat-box {
-      padding: 20px;
-    }
-
-    .stat-number {
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 8px;
-    }
-
-    .stat-label {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-muted);
-    }
-
-    /* ===== FEATURES SECTION ===== */
-    .features {
-      padding: 100px 0;
-    }
-
-    .section-title {
-      font-size: 44px;
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 60px;
-      color: var(--text);
-      letter-spacing: -1px;
-    }
-
-    .section-title span {
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-    }
-
-    .feature-card {
-      background: var(--card-bg);
-      border: 1px solid rgba(0, 209, 178, 0.2);
-      border-radius: 14px;
-      padding: 40px;
-      transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-card::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(0, 209, 178, 0.1) 0%, transparent 70%);
-      border-radius: 50%;
-      transition: all 0.3s;
-    }
-
-    .feature-card:hover {
-      border-color: var(--primary);
-      box-shadow: 0 20px 60px rgba(0, 209, 178, 0.15);
-      transform: translateY(-8px);
-    }
-
-    .feature-card:hover::before {
-      top: -25%;
-      right: -25%;
-    }
-
-    .feature-icon {
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 36px;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 8px 20px rgba(0, 209, 178, 0.2);
-    }
-
-    .feature-card h3 {
-      font-size: 22px;
-      margin-bottom: 14px;
-      color: var(--text);
-      position: relative;
-      z-index: 1;
-      font-weight: 700;
-    }
-
-    .feature-card p {
-      color: var(--text-muted);
-      font-size: 14px;
-      line-height: 1.7;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ===== PRODUCT LINES ===== */
-    .product-lines {
-      padding: 100px 0;
-      background: rgba(30, 41, 59, 0.2);
-      border: 1px solid rgba(0, 209, 178, 0.1);
-      border-left: none;
-      border-right: none;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 40px;
-    }
-
-    .product-card {
-      background: var(--card-bg);
-      border: 2px solid rgba(0, 209, 178, 0.2);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: all 0.3s;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .product-card:hover {
-      border-color: var(--primary);
-      box-shadow: 0 24px 60px rgba(0, 209, 178, 0.2);
-      transform: translateY(-12px);
-    }
-
-    .product-header {
-      background: linear-gradient(135deg, rgba(0, 209, 178, 0.1), rgba(0, 209, 178, 0.05));
-      padding: 40px 32px;
-      border-bottom: 2px solid rgba(0, 209, 178, 0.2);
-      text-align: center;
-    }
-
-    .product-icon {
-      font-size: 48px;
-      margin-bottom: 12px;
-    }
-
-    .product-badge {
-      display: inline-block;
-      background: rgba(0, 209, 178, 0.15);
-      border: 1px solid var(--primary);
-      color: var(--primary);
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .product-content {
-      padding: 32px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .product-card h3 {
-      font-size: 24px;
-      color: var(--text);
-      margin-bottom: 12px;
-      font-weight: 700;
-    }
-
-    .product-card p {
-      color: var(--text-muted);
-      font-size: 14px;
-      line-height: 1.7;
-      margin-bottom: 24px;
-      flex-grow: 1;
-    }
-
-    .product-specs {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 24px;
-      font-size: 13px;
-    }
-
-    .spec-item {
-      padding: 12px;
-      background: rgba(0, 209, 178, 0.08);
-      border-radius: 8px;
-      border-left: 3px solid var(--primary);
-    }
-
-    .spec-label {
-      color: var(--text-muted);
-      font-size: 11px;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-      letter-spacing: 0.5px;
-    }
-
-    .spec-value {
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .product-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--primary);
-      font-weight: 600;
-      font-size: 14px;
-      transition: all 0.3s;
-    }
-
-    .product-cta:hover {
-      gap: 12px;
-    }
-
-    /* ===== COMPARISON TABLE ===== */
-    .comparison-section {
-      padding: 40px;
-      background: rgba(30, 41, 59, 0.5);
-      border-radius: 16px;
-      border: 1px solid rgba(0, 209, 178, 0.1);
-      overflow-x: auto;
-      margin-top: 60px;
-    }
-
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-    }
-
-    .comparison-table th {
-      background: rgba(0, 209, 178, 0.12);
-      padding: 16px;
-      text-align: left;
-      border-bottom: 2px solid rgba(0, 209, 178, 0.3);
-      color: var(--primary);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .comparison-table td {
-      padding: 16px;
-      border-bottom: 1px solid rgba(0, 209, 178, 0.1);
-      color: var(--text-muted);
-    }
-
-    .comparison-table tr:hover {
-      background: rgba(0, 209, 178, 0.08);
-    }
-
-    /* ===== SPECS SECTION ===== */
-    .specs {
-      padding: 80px 0;
-    }
-
-    .specs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 32px;
-      text-align: center;
-    }
-
-    .spec-item-large {
-      padding: 32px;
-      background: var(--card-bg);
-      border: 1px solid rgba(0, 209, 178, 0.15);
-      border-radius: 12px;
-      transition: all 0.3s;
-    }
-
-    .spec-item-large:hover {
-      border-color: var(--primary);
-      box-shadow: 0 12px 36px rgba(0, 209, 178, 0.1);
-    }
-
-    .spec-value-large {
-      font-size: 40px;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 8px;
-    }
-
-    .spec-label-large {
-      color: var(--text-muted);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* ===== CONTACT SECTION ===== */
-    .contact {
-      padding: 100px 0;
-      text-align: center;
-    }
-
-    .contact h2 {
-      font-size: 44px;
-      font-weight: 800;
-      margin-bottom: 24px;
-      color: var(--text);
-      letter-spacing: -1px;
-    }
-
-    .contact p {
-      font-size: 18px;
-      color: var(--text-muted);
-      margin-bottom: 48px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.8;
-    }
-
-    .contact-methods {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-bottom: 48px;
-    }
-
-    .contact-method {
-      background: var(--card-bg);
-      padding: 40px;
-      border-radius: 12px;
-      border: 1px solid rgba(0, 209, 178, 0.15);
-      transition: all 0.3s;
-    }
-
-    .contact-method:hover {
-      border-color: var(--primary);
-      box-shadow: 0 12px 36px rgba(0, 209, 178, 0.1);
-      transform: translateY(-4px);
-    }
-
-    .contact-method-icon {
-      font-size: 40px;
-      margin-bottom: 16px;
-    }
-
-    .contact-method h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    .contact-method a,
-    .contact-method p {
-      font-weight: 600;
-      font-size: 14px;
-      color: var(--primary);
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: rgba(0, 0, 0, 0.5);
-      border-top: 1px solid rgba(0, 209, 178, 0.1);
-      padding: 40px 0;
-      margin-top: 80px;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 13px;
-    }
-
-    footer p {
-      margin: 0;
-    }
-
-    /* ===== UTILITIES ===== */
-    .location-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(16, 185, 129, 0.15);
-      border: 1px solid var(--success);
-      color: var(--success);
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-
-    .location-badge::before {
-      content: "●";
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.5;
-      }
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      .hero {
-        padding: 40px 0 60px;
-      }
-      .section-title {
-        font-size: 32px;
-        margin-bottom: 40px;
-      }
-      .hero-buttons {
-        flex-direction: column;
-      }
-      .btn {
-        width: 100%;
-        justify-content: center;
-      }
-      .product-specs {
-        grid-template-columns: 1fr;
-      }
-      nav ul {
-        display: none;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Aqrabadhin: Complete Interactive Edition | الأقراباذين | اَلاَقراباذین</title>
+    <meta name="description" content="Complete interactive trilingual edition of Al-Aqrabadhin with 237 formulations, organized by human body systems, with research opportunities and collaboration framework.">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           CRITICAL: Complete Styles for Full Site
+        ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3a5f;
+            --secondary: #d4af37;
+            --accent: #8b4513;
+            --success: #059669;
+            --danger: #dc2626;
+            --warning: #f59e0b;
+            --info: #0ea5e9;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --border: #e2e8f0;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        [dir="rtl"] body {
+            font-family: 'Noto Naskh Arabic', 'Vazirmatn', 'Noto Sans', serif;
+        }
+
+        /* =========================================
+           LANGUAGE SWITCHER
+        ========================================= */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            display: flex;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px;
+            border-radius: 999px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        [dir="rtl"] .lang-switcher {
+            right: auto;
+            left: 20px;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .lang-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* =========================================
+           LAYOUT CONTAINERS
+        ========================================= */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
+        /* =========================================
+           HERO WITH INTERACTIVE BODY
+        ========================================= */
+        .hero {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius);
+            padding: 24px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* =========================================
+           INTERACTIVE BODY DIAGRAM
+        ========================================= */
+        .body-diagram-section {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .body-diagram-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .body-diagram {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .body-part {
+            position: absolute;
+            background: rgba(30, 58, 95, 0.7);
+            border: 2px solid var(--secondary);
+            border-radius: 8px;
+            padding: 8px 12px;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+        }
+
+        .body-part:hover {
+            background: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        .body-part.active {
+            background: var(--secondary);
+            color: var(--text);
+        }
+
+        /* Body part positions (simplified grid layout) */
+        .bp-head { top: 5%; left: 50%; transform: translateX(-50%); }
+        .bp-eye { top: 12%; left: 50%; transform: translateX(-50%); }
+        .bp-ear { top: 18%; left: 50%; transform: translateX(-50%); }
+        .bp-chest { top: 28%; left: 50%; transform: translateX(-50%); }
+        .bp-heart { top: 35%; left: 50%; transform: translateX(-50%); }
+        .bp-stomach { top: 45%; left: 50%; transform: translateX(-50%); }
+        .bp-liver { top: 52%; left: 60%; transform: translateX(-50%); }
+        .bp-spleen { top: 52%; left: 40%; transform: translateX(-50%); }
+        .bp-intestine { top: 62%; left: 50%; transform: translateX(-50%); }
+        .bp-kidney { top: 72%; left: 50%; transform: translateX(-50%); }
+        .bp-hemorrhoid { top: 80%; left: 50%; transform: translateX(-50%); }
+        .bp-genital { top: 88%; left: 50%; transform: translateX(-50%); }
+        .bp-comprehensive { top: 95%; left: 50%; transform: translateX(-50%); }
+
+        /* =========================================
+           CHAPTER CARDS
+        ========================================= */
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .chapter-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            transition: var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .chapter-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .chapter-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .chapter-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .chapter-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .chapter-desc {
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .chapter-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 6px;
+            margin-top: 8px;
+        }
+
+        .badge-formulas {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .badge-wow {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        /* =========================================
+           TABLES
+        ========================================= */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        thead {
+            background: var(--primary);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        th {
+            padding: 14px 12px;
+            text-align: left;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        [dir="rtl"] th {
+            text-align: right;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            background: #f8fafc;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .badge-success { background: #d1fae5; color: #065f46; }
+        .badge-warning { background: #fef3c7; color: #92400e; }
+        .badge-danger { background: #fee2e2; color: #991b1b; }
+        .badge-info { background: #dbeafe; color: #1e40af; }
+
+        /* =========================================
+           SECTION TITLES
+        ========================================= */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid var(--secondary);
+        }
+
+        .section-subtitle {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin: 32px 0 16px;
+        }
+
+        /* =========================================
+           RESEARCH PROBLEMS
+        ========================================= */
+        .research-grid {
+            display: grid;
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .research-card {
+            background: #fefce8;
+            border-left: 4px solid #eab308;
+            border-radius: var(--radius);
+            padding: 20px;
+        }
+
+        [dir="rtl"] .research-card {
+            border-left: none;
+            border-right: 4px solid #eab308;
+        }
+
+        .research-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .research-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        .research-impact {
+            padding: 4px 12px;
+            background: #dc2626;
+            color: white;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+        .footer {
+            background: #0f172a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            color: white;
+        }
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+            .section { padding: 24px 20px; }
+            .section-title { font-size: 1.8rem; }
+            .chapter-grid { grid-template-columns: 1fr; }
+
+            .body-part {
+                position: relative !important;
+                left: auto !important;
+                right: auto !important;
+                top: auto !important;
+                transform: none !important;
+                margin: 8px auto;
+                display: block;
+                max-width: 200px;
+            }
+        }
+
+        /* =========================================
+           PRINT STYLES
+        ========================================= */
+        @media print {
+            .lang-switcher,
+            .body-diagram-section {
+                display: none;
+            }
+
+            .section {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- NAVIGATION -->
-  <nav>
-    <div class="container">
-      <div class="logo-nav">◆ iSmartBox</div>
-      <ul>
-        <li><a href="#hero" class="nav-link active">Home</a></li>
-        <li><a href="#products" class="nav-link">Products</a></li>
-        <li><a href="#features" class="nav-link">Solutions</a></li>
-        <li><a href="#specs" class="nav-link">Specs</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-        <li><a href="mailto:mostafa@rphotanol.com" class="nav-cta">Request Demo</a></li>
-      </ul>
-    </div>
-  </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-text">
-          <span class="location-badge">● Muscat, Oman — Engineered for the Gulf</span>
-          <h1>Next-Generation <span>Modular Data Centers</span> Built for Enterprise Scale</h1>
-          <p>Factory-integrated container data centers with enterprise-grade reliability, advanced cooling, and 24/7 intelligent monitoring. Deploy infrastructure in weeks, not months.</p>
-          <div class="hero-badges">
-            <span class="badge-hero">99.95% Uptime SLA</span>
-            <span class="badge-hero">12–16 Week Delivery</span>
-            <span class="badge-hero">Gulf Climate Optimized</span>
-          </div>
-          <div class="hero-buttons">
-            <a href="mailto:mostafa@rphotanol.com?subject=iSmartBox%20Demo%20Request" class="btn btn-primary">Request Live Demo →</a>
-            <a href="tel:+96898060818" class="btn btn-secondary">Call: +968 9806 0818</a>
-          </div>
-        </div>
-        <div class="hero-image">
-          <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/e507240d-26b0-422d-9688-774ca4625c4a.png" alt="iSmartBox modular data center" />
-        </div>
-      </div>
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="switchLang('en')" data-lang="en">English</button>
+        <button class="lang-btn" onclick="switchLang('ar')" data-lang="ar">العربية</button>
+        <button class="lang-btn" onclick="switchLang('fa')" data-lang="fa">فارسی</button>
     </div>
-  </section>
 
-  <!-- STATS -->
-  <section class="stats">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-box">
-          <div class="stat-number">83+</div>
-          <div class="stat-label">Units Deployed</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-number">565</div>
-          <div class="stat-label">Total Racks</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-number">3.9 MW</div>
-          <div class="stat-label">Total Power</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-number">1.35</div>
-          <div class="stat-label">Avg. PUE</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-title" id="main-title">Al-Aqrabadhin: Complete Interactive Edition</h1>
+            <p class="hero-subtitle" id="main-subtitle">World's First Pharmaceutical Formulary (9th-11th Century CE)</p>
 
-  <!-- FEATURES -->
-  <section class="features" id="features">
-    <div class="container">
-      <h2 class="section-title">Why <span>iSmartBox?</span></h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">📦</div>
-          <h3>Modular Design</h3>
-          <p>ISO 20/40/45ft containers. Pre-integrated racks (8–300 units), cabling, networking. Scale seamlessly from edge to core.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">❄️</div>
-          <h3>Gulf Climate Ready</h3>
-          <p>Advanced in-row/precision cooling. Rated -15°C to 60°C. PUE ≤ 1.35. Designed for Oman's heat and humidity.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>High-Density Power</h3>
-          <p>15–17 kW per rack. Redundant UPS (2N), backup generators, intelligent PDU distribution and monitoring.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔒</div>
-          <h3>Security First</h3>
-          <p>Physical security by design. Fire detection/suppression, access control, environmental sensors, 24/7 DCIM.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🌐</div>
-          <h3>Smart Monitoring</h3>
-          <p>100+ environmental sensors. Real-time telemetry, predictive alerts, auto-response. TCP/IP, SNMP, Modbus, BACnet.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">⏱️</div>
-          <h3>Fast Deployment</h3>
-          <p>Factory-tested and documented. 12–16 weeks standard. Land, connect, deploy. Zero site prep delays.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUCTS -->
-  <section class="product-lines" id="products">
-    <div class="container">
-      <h2 class="section-title">Product <span>Lines</span></h2>
-      
-      <div class="product-grid">
-        <!-- POD Series -->
-        <div class="product-card">
-          <div class="product-header">
-            <div class="product-icon">🏢</div>
-            <span class="product-badge">Core Level</span>
-            <h3>POD Series</h3>
-          </div>
-          <div class="product-content">
-            <p>Performance-optimized core data centers. 20–600 kW capacity, 20–30 racks. Multi-container design with dedicated NOC, cooling, power, and IT facilities.</p>
-            <div class="product-specs">
-              <div class="spec-item">
-                <div class="spec-label">Power</div>
-                <div class="spec-value">200–600 kW</div>
-              </div>
-              <div class="spec-item">
-                <div class="spec-label">Racks</div>
-                <div class="spec-value">20–30</div>
-              </div>
-              <div class="spec-item">
-                <div class="spec-label">Power/Rack</div>
-                <div class="spec-value">17 kW</div>
-              </div>
-              <div class="spec-item">
-                <div class="spec-label">Cooling</div>
-                <div class="spec-value">240–576 kW</div>
-              </div>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-number">237</div>
+                    <div class="stat-label" data-i18n="stat-formulas">Formulations Analyzed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">13</div>
+                    <div class="stat-label" data-i18n="stat-chapters">Body System Chapters</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">44.3%</div>
+                    <div class="stat-label" data-i18n="stat-validated">Validated by Modern Science</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">46</div>
+                    <div class="stat-label" data-i18n="stat-research">High-Priority Research</div>
+                </div>
             </div>
-            <a href="mailto:mostafa@rphotanol.com?subject=POD%20Series%20Inquiry" class="product-cta">Request Specs →</a>
-          </div>
         </div>
+    </div>
 
-        <!-- MOD Series -->
-        <div class="product-card">
-          <div class="product-header">
-            <div class="product-icon">🎯</div>
-            <span class="product-badge">Edge & Mobile</span>
-            <h3>MOD Series</h3>
-          </div>
-          <div class="product-content">
-            <p>Mobile-optimized edge data centers. 35–96 kW capacity, 5–12 racks. Perfect for Tier II/III branch offices, disaster recovery, and distributed workloads.</p>
-            <div class="product-specs">
-              <div class="spec-item">
-                <div class="spec-label">Power</div>
-                <div class="spec-value">35–96 kW</div>
-              </div>
-              <div class="spec-item">
-                <div class="spec-label">Racks</div>
-                <div class="spec-value">5–12</div>
-              </div>
-              <div class="spec-item">
-                <div class="spec-label">UPS</div>
-                <div class="spec-value">N+1</div>
-              </div>
-              <div class="spec-item">
-                <div class="spec-label">Tier</div>
-                <div class="spec-value">II–III</div>
-              </div>
+    <!-- INTERACTIVE BODY DIAGRAM -->
+    <div class="body-diagram-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="body-title">Interactive Body System Navigator</h2>
+            <p style="margin-bottom: 40px; font-size: 1.1rem; color: var(--text-muted);" data-i18n="body-desc">
+                Click on any body system to explore formulations, validations, and research opportunities
+            </p>
+
+            <div class="body-diagram-container">
+                <div class="body-diagram" style="height: 600px; position: relative; background: linear-gradient(to bottom, rgba(30, 58, 95, 0.05), transparent); border-radius: var(--radius);">
+                    <a href="#chapter-1" class="body-part bp-head" data-chapter="1">1. Head</a>
+                    <a href="#chapter-2" class="body-part bp-eye" data-chapter="2">2. Eyes</a>
+                    <a href="#chapter-3" class="body-part bp-ear" data-chapter="3">3. ENT</a>
+                    <a href="#chapter-4" class="body-part bp-chest" data-chapter="4">4. Chest</a>
+                    <a href="#chapter-5" class="body-part bp-heart" data-chapter="5">5. Heart</a>
+                    <a href="#chapter-6" class="body-part bp-stomach" data-chapter="6">6. Stomach</a>
+                    <a href="#chapter-7" class="body-part bp-liver" data-chapter="7">7. Liver</a>
+                    <a href="#chapter-8" class="body-part bp-spleen" data-chapter="8">8. Spleen</a>
+                    <a href="#chapter-9" class="body-part bp-intestine" data-chapter="9">9. Intestines</a>
+                    <a href="#chapter-12" class="body-part bp-kidney" data-chapter="12">12. Kidney</a>
+                    <a href="#chapter-10" class="body-part bp-hemorrhoid" data-chapter="10">10. Hemorrhoids</a>
+                    <a href="#chapter-11" class="body-part bp-genital" data-chapter="11">11. Genital</a>
+                    <a href="#chapter-13" class="body-part bp-comprehensive" data-chapter="13">13. Universal</a>
+                </div>
             </div>
-            <a href="mailto:mostafa@rphotanol.com?subject=MOD%20Series%20Inquiry" class="product-cta">Explore MOD →</a>
-          </div>
         </div>
-
-        <!-- TOD Series -->
-        <div class="product-card">
-          <div class="product-header">
-            <div class="product-icon">🎖️</div>
-            <span class="product-badge">Tactical</span>
-            <h3>TOD Series</h3>
-          </div>
-          <div class="product-content">
-            <p>Tactical operations and command centers. 18–30 kW capacity, 3–5 racks. Configurable as command room, crisis center, or mobile processing hub.</p>
-            <div class="product-specs">
-              <div class="spec-item">
-                <div class="spec-label">Power</div>
-                <div class="spec-value">18–30 kW</div>
-              </div>
-              <div class="spec-item">
-                <div class="spec-label">Racks</div>
-                <div class="spec-value">3–5</div>
-              </div>
-              <div class="spec-item">
-                <div class="spec-label">Size</div>
-                <div class="spec-value">45ft</div>
-              </div>
-              <div class="spec-item">
-                <div class="spec-label">Tier</div>
-                <div class="spec-value">II</div>
-              </div>
-            </div>
-            <a href="mailto:mostafa@rphotanol.com?subject=TOD%20Series%20Inquiry" class="product-cta">Start Project →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- COMPARISON TABLE -->
-      <div class="comparison-section">
-        <h3 style="text-align: center; margin-bottom: 24px; color: var(--text); font-weight: 700;">Quick Comparison</h3>
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th>Spec</th>
-              <th>POD (Core)</th>
-              <th>MOD (Edge)</th>
-              <th>TOD (Tactical)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Power Capacity</strong></td>
-              <td>200–600 kW</td>
-              <td>35–96 kW</td>
-              <td>18–30 kW</td>
-            </tr>
-            <tr>
-              <td><strong>Rack Count</strong></td>
-              <td>20–30</td>
-              <td>5–12</td>
-              <td>3–5</td>
-            </tr>
-            <tr>
-              <td><strong>Power/Rack</strong></td>
-              <td>17 kW</td>
-              <td>8–16 kW</td>
-              <td>6 kW</td>
-            </tr>
-            <tr>
-              <td><strong>Redundancy</strong></td>
-              <td>2N/N+1</td>
-              <td>2x(N+1)</td>
-              <td>2N</td>
-            </tr>
-            <tr>
-              <td><strong>Cooling</strong></td>
-              <td>In-Row/Overhead</td>
-              <td>Overhead DX</td>
-              <td>Downflow DX</td>
-            </tr>
-            <tr>
-              <td><strong>Tier</strong></td>
-              <td>III–IV</td>
-              <td>II–III</td>
-              <td>II</td>
-            </tr>
-            <tr>
-              <td><strong>Deployment</strong></td>
-              <td>14–16w</td>
-              <td>12–14w</td>
-              <td>10–12w</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
     </div>
-  </section>
 
-  <!-- SPECS -->
-  <section class="specs" id="specs">
-    <div class="container">
-      <h2 class="section-title">Performance <span>Metrics</span></h2>
-      <div class="specs-grid">
-        <div class="spec-item-large">
-          <div class="spec-value-large">99.95%</div>
-          <div class="spec-label-large">Uptime SLA</div>
-        </div>
-        <div class="spec-item-large">
-          <div class="spec-value-large">12–16w</div>
-          <div class="spec-label-large">Delivery Time</div>
-        </div>
-        <div class="spec-item-large">
-          <div class="spec-value-large">24/7</div>
-          <div class="spec-label-large">Smart Monitoring</div>
-        </div>
-        <div class="spec-item-large">
-          <div class="spec-value-large">1.35</div>
-          <div class="spec-label-large">PUE Average</div>
-        </div>
-        <div class="spec-item-large">
-          <div class="spec-value-large">100+</div>
-          <div class="spec-label-large">Sensors</div>
-        </div>
-        <div class="spec-item-large">
-          <div class="spec-value-large">100%</div>
-          <div class="spec-label-large">Factory Tested</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <h2>Ready to Transform Your <span style="color: var(--primary);">Infrastructure?</span></h2>
-      <p>Get in touch with our engineering team to discuss your deployment requirements, timeline, and infrastructure roadmap.</p>
-      
-      <div class="contact-methods">
-        <div class="contact-method">
-          <div class="contact-method-icon">✉️</div>
-          <h3>Email</h3>
-          <p><a href="mailto:mostafa@rphotanol.com">mostafa@rphotanol.com</a></p>
-        </div>
-        <div class="contact-method">
-          <div class="contact-method-icon">📞</div>
-          <h3>Phone / WhatsApp</h3>
-          <p><a href="tel:+96898060818">+968 9806 0818</a></p>
-        </div>
-        <div class="contact-method">
-          <div class="contact-method-icon">📍</div>
-          <h3>Location</h3>
-          <p>Muscat, Sultanate of Oman</p>
-        </div>
-      </div>
-
-      <a href="mailto:mostafa@rphotanol.com?subject=iSmartBox%20Project%20Inquiry" class="btn btn-primary">Schedule Consultation</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 iSmartBox. Premium Modular Data Centers & Enterprise ICT Infrastructure. Engineered in Muscat, Oman.</p>
-    </div>
-  </footer>
-
-  <script>
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-
-    // Active nav
-    const navLinks = document.querySelectorAll('.nav-link');
-    window.addEventListener('scroll', () => {
-      navLinks.forEach(link => {
-        const section = document.querySelector(link.getAttribute('href'));
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
-        }
-      });
-    });
-  </script>
-</body>
-</html>
